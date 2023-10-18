@@ -72,17 +72,50 @@ export default function Table() {
       lastUpdate,
     };
 
-    setSavedData([...savedData, newRow]);
 
-    // Clear the form
-    setStartDate('');
-    setEndDate('');
-    setMonthYear('');
-    setLeadCount('');
-    setExpectedDrr('');
-    setDatesExcluded([]);
+    fetch('http://127.0.0.1:4000/api/saveData', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRow),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // If the request was successful, you can clear the form and update the UI.
+          setSavedData([...savedData, newRow]);
+          setStartDate('');
+          setEndDate('');
+          setMonthYear('');
+          setLeadCount('');
+          setExpectedDrr('');
+          setDatesExcluded([]);
+        } else {
+          // Handle the error case if needed
+          console.error('Failed to save data');
+        }
+      })
+      .catch((error) => {
+        console.error('Error while saving data:', error);
+      });
+
+
+
+    // setSavedData([...savedData, newRow]);
+
+    // // Clear the form
+    // setStartDate('');
+    // setEndDate('');
+    // setMonthYear('');
+    // setLeadCount('');
+    // setExpectedDrr('');
+    // setDatesExcluded([]);
   };
   console.log(savedData)
+
+
+
+
   
   return (
     <table className="table table-bordered">
