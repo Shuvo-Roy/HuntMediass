@@ -42,22 +42,26 @@ export default function Table() {
       const years = Math.floor(days / 365);
       const months = Math.floor((days % 365) / 30);
       const remainingDays = days - (years * 365) - (months * 30);
-
+      
       setNumberOfDays(remainingDays);
       setStartMonth(startDateObj.getMonth() + 1);
       setStartYear(startDateObj.getFullYear());
+      
     } else {
       setNumberOfDays('');
       setStartMonth('');
       setStartYear('');
+      setExpectedDrr('');
     }
   };
+  // const Drr = leadCount / numberOfDays;
 
   const handleSaveData = () => {
     const currentDate = new Date();
     const lastUpdate = currentDate.toLocaleString();
     const randomId = generateRandomId(2);
-
+    const Drr = leadCount / numberOfDays;
+    
     const newRow = {
       id: randomId,
       startDate,
@@ -68,7 +72,7 @@ export default function Table() {
       datesExcluded,
       numberOfDays,
       leadCount,
-      expectedDrr,
+      Drr,
       lastUpdate,
     };
 
@@ -165,12 +169,7 @@ export default function Table() {
             />
           </td>
           <td>
-            <input
-              type="number"
-              value={expectedDrr}
-              className="form-control"
-              onChange={(e) => setExpectedDrr(e.target.value)}
-            />
+            
           </td>
           <td className="d-flex gap-2">
             <button className="btn btn-success" onClick={handleSaveData}>
@@ -190,7 +189,7 @@ export default function Table() {
               <td>{data.datesExcluded}</td>
               <td>{data.numberOfDays}</td>
               <td>{data.leadCount}</td>
-              <td>{data.expectedDrr}</td>
+              <td>{data.Drr}</td>
               <td>{data.lastUpdate}</td>
             </tr>
           ))
