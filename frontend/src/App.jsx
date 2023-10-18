@@ -3,7 +3,7 @@ import Table from './Table';
 import axios from 'axios'
 function App() {
 
-  axios.defaults.baseURL='http://127.0.0.1:4000';
+  axios.defaults.baseURL='https://hunt-mediass.vercel.app/';
 axios.defaults.withCredentials=true;
   return (
     <div className="container ">

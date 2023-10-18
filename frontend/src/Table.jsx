@@ -73,7 +73,7 @@ export default function Table() {
     };
 
 
-    fetch('http://127.0.0.1:4000/api/saveData', {
+    fetch('https://hunt-mediass.vercel.app/api/saveData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
