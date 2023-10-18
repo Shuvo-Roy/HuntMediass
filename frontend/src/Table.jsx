@@ -146,6 +146,22 @@ export default function Table() {
             <button className="btn btn-danger">Cancel</button>
           </td>
         </tr>
+        {
+          savedData.map((data,index)=>(
+            <tr key={index}>
+              <td></td>
+              <td>{data.id}</td>
+              <td>{data.startDate}</td>
+              <td>{data.endDate}</td>
+              <td>{data.startMonth},{data.startYear}</td>
+              <td>{data.datesExcluded}</td>
+              <td>{data.numberOfDays}</td>
+              <td>{data.leadCount}</td>
+              <td>{data.expectedDrr}</td>
+              <td>{data.lastUpdate}</td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   );
