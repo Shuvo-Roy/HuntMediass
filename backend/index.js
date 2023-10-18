@@ -5,7 +5,7 @@ app.use(express.json());
 
 app.use(cors({
     credentials: true,
-    origin: 'https://hunt-mediass-sfv9.vercel.app/',
+    origin: 'https://hunt-mediass-sfv9.vercel.app',
 }))
 
 app.get('/test', (req,res)=>{
